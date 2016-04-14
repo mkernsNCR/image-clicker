@@ -56,6 +56,12 @@ app.post("/images/:name", function(req, res){
   });
 });
 
+app.post("/images/:name/delete", function(req, res){
+  Image.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/images")
+  });
+});
+
 app.listen(app.get("port"), function(){
   console.log("were live!");
 });
