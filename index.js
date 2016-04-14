@@ -44,8 +44,11 @@ app.get("/images/:name", function(req,res){
 });
 
 app.post("/images", function(req, res){
-  res.json(req.body);
-})
+  Image.create(req.body.image).then(function(image){
+    res.redirect("/images/" + image.name);
+
+  });
+});
 
 app.listen(app.get("port"), function(){
   console.log("were live");
