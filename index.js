@@ -7,7 +7,7 @@ var app = express();
 
 var Image = mongoose.model("Image");
 
-app.set("port", process.env.PORT);
+app.set("port", process.env.PORT || 3005);
 
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
