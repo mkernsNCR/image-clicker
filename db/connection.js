@@ -10,13 +10,17 @@ var ImageSchema = new mongoose.Schema(
   }
 );
 
-mongoose.model("Image", ImageSchema);
-mongoose.connect("mongodb://localhost/image-clicker");
 
-module.exports = mongoose;
+mongoose.model("Image", ImageSchema);
 
 if(process.env.NODE_ENV == "production"){
   mongoose.connect(process.env.MONGOLAB_URL);
 }else{
   mongoose.connect("mongodb://localhost/image-clicker");
 }
+
+
+
+
+
+module.exports = mongoose;
