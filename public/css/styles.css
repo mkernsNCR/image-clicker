@@ -1,3 +1,10 @@
 body{
   text-align: center;
 }
+
+#image_url{
+
+  width: 200px;
+  height: 200px;
+
+}
