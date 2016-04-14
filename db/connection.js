@@ -14,3 +14,9 @@ mongoose.model("Image", ImageSchema);
 mongoose.connect("mongodb://localhost/image-clicker");
 
 module.exports = mongoose;
+
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URL);
+}else{
+  mongoose.connect("mongodb://localhost/image-clicker");
+}
