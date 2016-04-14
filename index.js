@@ -4,6 +4,8 @@ var db = require("./db/connection");
 
 var app = express();
 
+app.set("port", process.env.PORT || 3005);
+
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname: ".hbs",
@@ -26,6 +28,15 @@ app.get("/images", function (req, res) {
   });
 });
 
-app.listen(3005, function(){
+app.get("/images/:name", function(req,res){
+  var data = {
+    name: req.params.name
+  };
+  res.render("images-show", {
+    image: data
+  })
+});
+
+app.listen(app.get("port"), function(){
   console.log("were live");
 });
