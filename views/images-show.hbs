@@ -4,6 +4,11 @@
 
 {{else}}
 <h2>{{image.name}}</h2>
+<img id="image_url" src="{{image.image_url}}"></img>
+<p>Quote: {{image.quote}}</p>
+<p>Origin: {{image.origin}}</p>
+<p>Powers: {{image.powers}}</p>
+
 
 <form action="/images/{{image.name}}" method="POST">
   <input type="text" name="image[name]" placeholder="Name" value="{{image.name}}"/>
