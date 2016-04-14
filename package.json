@@ -20,6 +20,8 @@
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "finalhandler": "^0.4.1",
+    "merge-descriptors": "^1.0.1",
     "mongoose": "^4.4.12"
   }
 }

@@ -43,6 +43,12 @@ app.get("/images/:name", function(req,res){
   });
 });
 
+app.post("/images/:name/delete", function(req, res){
+  Image.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/images")
+  });
+});
+
 app.post("/images", function(req, res){
   res.json(req.body);
 })
