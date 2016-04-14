@@ -5,5 +5,11 @@
 <img src="{{image.image_url}}"></img>
 {{/each}}
 
-<!-- <h2>{{cool}}</h2>
-<h2>{{images.name}}</h2> -->
+<form action="/images" method="POST">
+  <input type="text" name="image[name]" placeholder="Name"/>
+  <input type="text" name="image[image_url]" placeholder="Image"/>
+  <button type="submit">Add Image</button>
+
+
+
+</form>

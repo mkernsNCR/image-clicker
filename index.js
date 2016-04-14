@@ -1,6 +1,7 @@
 var express = require("express");
 var hbs = require("express-handlebars");
 var mongoose = require("./db/connection");
+var parser = require("body-parser");
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.engine(".hbs", hbs({
 }));
 
 app.use("/assets", express.static("public"));
+app.use(parser.urlencoded({extended: true}));
 
 
 app.get("/", function(req, res){
@@ -32,13 +34,18 @@ app.get("/images", function (req, res) {
 });
 
 app.get("/images/:name", function(req,res){
-  var data = {
+  Image.findOne({
     name: req.params.name
-  };
-  res.render("images-show", {
-    image: data
+  }).then(function(image){
+    res.render("images-show",{
+      image: image
+    });
   });
 });
+
+app.post("/images", function(req, res){
+  res.json(req.body);
+})
 
 app.listen(app.get("port"), function(){
   console.log("were live");
