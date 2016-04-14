@@ -1,8 +1,10 @@
 var express = require("express");
 var hbs = require("express-handlebars");
-var db = require("./db/connection");
+var mongoose = require("./db/connection");
 
 var app = express();
+
+var Image = mongoose.model("Image");
 
 app.set("port", process.env.PORT || 3005);
 
@@ -22,9 +24,10 @@ app.get("/", function(req, res){
 });
 
 app.get("/images", function (req, res) {
-  res.render("images-index", {
-    cool: "hello" ,
-    images: db.images
+  Image.find().then(function (images) {
+    res.render("images-index", {
+      images: images
+    });
   });
 });
 
@@ -34,7 +37,7 @@ app.get("/images/:name", function(req,res){
   };
   res.render("images-show", {
     image: data
-  })
+  });
 });
 
 app.listen(app.get("port"), function(){
