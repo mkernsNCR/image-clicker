@@ -1,3 +1,12 @@
+<form action="/images" method="POST">
+  <input type="text" name="image[name]" placeholder="Name"/>
+  <input type="text" name="image[image_url]" placeholder="Image"/>
+  <input type="text" name="image[quote]" placeholder="Quote"/>
+  <input type="text" name="image[origin]" placeholder="Origin"/>
+  <input type="text" name="image[powers]" placeholder="Powers"/>
+  <button type="submit">Add Image</button>
+
+
 {{#each images as |image|}}
 <h2>
   <a href="/images/{{image.name}}">{{image.name}}</a>
@@ -5,10 +14,7 @@
 <img src="{{image.image_url}}"></img>
 {{/each}}
 
-<form action="/images" method="POST">
-  <input type="text" name="image[name]" placeholder="Name"/>
-  <input type="text" name="image[image_url]" placeholder="Image"/>
-  <button type="submit">Add Image</button>
+
 
 
 
