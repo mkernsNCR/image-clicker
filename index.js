@@ -22,7 +22,7 @@ app.use(parser.urlencoded({extended: true}));
 
 
 app.get("/", function(req, res){
-    res.render("app-welcome");
+  res.render("app-welcome");
 });
 
 app.get("/images", function (req, res) {
@@ -47,6 +47,18 @@ app.post("/images", function(req, res){
   Image.create(req.body.image).then(function(image){
     res.redirect("/images/" + image.name);
 
+  });
+});
+
+app.post("/images/:name", function(req, res){
+  Image.findOneAndUpdate({name: req.params.name}, req.body.image, {new: true}).then(function(image){
+    res.redirect("/images/" + image.name);
+  });
+});
+
+app.post("/images/:name/delete", function(req, res){
+  Image.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/images")
   });
 });
 

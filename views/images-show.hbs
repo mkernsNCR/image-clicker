@@ -1,3 +1,21 @@
 <h2>Show page</h2>
+{{#unless image}}
+<h2>That image can't be found!</h2>
+
+{{else}}
 <h2>{{image.name}}</h2>
-<img id="image_url" src="{{image.image_url}}"/>
+
+<form action="/images/{{image.name}}" method="POST">
+  <input type="text" name="image[name]" placeholder="Name" value="{{image.name}}"/>
+  <input type="text" name="image[image_url]" placeholder="Image" value="{{image.image_url}}"/>
+  <input type="text" name="image[quote]" placeholder="Quote" value="{{image.quote}}"/>
+  <input type="text" name="image[origin]" placeholder="Origin" value="{{image.origin}}"/>
+  <input type="text" name="image[powers]" placeholder="Powers" value="{{image.powers}}"/>
+  <button type="submit">Add Image</button>
+</form>
+
+<form method="post" action="/images/{{image.name}}/delete">
+  <button type="submit">Delete</button>
+</form>
+
+{{/unless}}
