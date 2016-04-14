@@ -5,10 +5,19 @@
   },
   {
     "name": "Batman" ,
-    "image_url": "http://i.imgur.com/1sHJ6ay.jpg"
+    "image_url": "http://static.comicvine.com/uploads/original/11125/111253442/4897645-batman.jpg"
   },
   {
     "name": "Itachi",
     "image_url": "http://www.saiyanisland.com/news/wp-content/uploads2/2014/03/ANBU-Itachi.png"
+  },
+  {
+    "name": "Ed Ed Eddy" ,
+    "image_url": "http://imagesmtv-a.akamaihd.net/uri/mgid:ao:image:mtv.com:62793?quality=0.8&format=jpg&width=980&height=551"
+  },
+  {
+    "name": "Samurai Champloo" ,
+    "image_url": "http://thefindmag.com/wp-content/uploads/SamuraiChamp.jpg"
   }
+
 ]
